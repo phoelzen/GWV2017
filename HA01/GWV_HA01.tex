@@ -1,0 +1,41 @@
+\documentclass[12pt, paper=a4]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+
+\author{Benjamin Cordt, xxxxxxx\\Paul Hölzen, 6673477\\Ino xx, xxxxxxx}
+
+\title{GWV Hausaufgaben 1}
+
+\rhead{B. Cordt, P. Hölzen, I. xx}
+\pagestyle{fancy}
+\begin{document}
+\maketitle
+
+\section*{Aufgabe 1.1}
+\begin{itemize}
+\item Fully observable $\Leftrightarrow$ partially observable\\
+      Eine AI Applikation muss unter Berücksichtigung der Beobachtbarkeit der Welt entworfen werden, da
+      nicht beobachtbare Komponenten einen großen Einfluss auf die Umwelt und damit auf das Verhalten der
+      AI haben können bzw. sollten.\\
+      Ein Problem, das in einer nur teilweise beobachtbaren Welt besteht, nicht aber in einer vollständig
+      beobachtbaren, ist das mögliche Übersehen oder falsche Behandeln von unsichtbaren Einflüssen.
+\item Discrete $\Leftrightarrow$ continuous\\
+      Wenn von einer diskreten Welt ausgegangen wird, obwohl eine kontinuierliche vorliegt, können die
+      ``Zwischenwerte'' nicht abgebildet oder verarbeitet werden.\\
+      Ein Problem einer kontinuierlichen Welt gegenüber einer diskreten ist die Kathegorisierung von
+      Ereignissen oder Werten, da diese zwischen Erwartungs-/Schwellwerten liegen können.
+\item Deterministic $\Leftrightarrow$ stochastic
+      In einer deterministischen Welt hat jede Aktion geau ein festes Ergebnis. Eine AI die mit diesem
+      Konzept entworfen wurde, stößt in einer stochastischen Welt auf Probleme, sobald dieses Ergebnis
+      abweicht.\\
+      Dies ist auch das Problem einer stochastischen Welt im Gegensatz zur deterministischen: Reaktionen
+      auf die Umwelt und müssen sehr flexibel sein um auch unvorhergesehene Ergebnisse verarbeiten zu
+      können.
+\end{itemize}
+
+\end{document}
