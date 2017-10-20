@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.27)  20 OCT 2017 21:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.27)  20 OCT 2017 22:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -603,19 +603,19 @@ Overfull \hbox (6.81664pt too wide) in paragraph at lines 22--28
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 45--48
+Underfull \hbox (badness 10000) in paragraph at lines 44--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
+Underfull \hbox (badness 10000) in paragraph at lines 51--52
 
  []
 
 <tree.jpg, id=10, 319.959pt x 439.8615pt>
 File: tree.jpg Graphic file (type jpg)
  <use tree.jpg>
-Package pdftex.def Info: tree.jpg used on input line 62.
+Package pdftex.def Info: tree.jpg used on input line 61.
 (pdftex.def)             Requested size: 223.96977pt x 307.90094pt.
 
 
@@ -628,12 +628,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 66--67
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--69
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
 
  []
 
@@ -641,7 +641,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 68--69
 Here is how much of TeX's memory you used:
  4939 strings out of 493029
  65372 string characters out of 6136234
- 137153 words of memory out of 5000000
+ 137142 words of memory out of 5000000
  8395 multiletter control sequences out of 15000+600000
  12448 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -652,7 +652,7 @@ amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb>
-Output written on GWV_HA01.pdf (3 pages, 149001 bytes).
+Output written on GWV_HA01.pdf (3 pages, 148794 bytes).
 PDF statistics:
  35 PDF objects out of 1000 (max. 8388607)
  23 compressed objects within 1 object stream
