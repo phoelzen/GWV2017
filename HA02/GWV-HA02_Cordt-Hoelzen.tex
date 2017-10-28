@@ -19,12 +19,42 @@
 
 \section*{Aufgabe 2.4}
 \begin{itemize}
-\item blabla
+\item $state: <P,F>$ wobei $P$ eine Matrix ist, deren Koordinaten Orte in der Wohnung repräsentieren.
+      Die Werte sind dabei Element der Menge $\tilde{F} = F \cup x \cup 0$.
+      $F$ ist die Menge von Möbeln, die Werte $x$ und $0$ stehen für Plätze auf denen keine
+      Möbel stehen können und freie Stellen.\\
+      Die Menge $F$ besteht aus Zwei-Tupeln mit einem eindeutigen Bezeichner $b$ an der ersten
+      und zwei Zahlen $x, y \in \mathbb{N}$ an der zweiten und dritten Stelle, die die benötigte
+      Fläche beschreiben.\\
+      
+      Der Startzustand besteht dann aus $P$, einer Matrix, die eine leere Wohnung darstellt, und
+      $F$ der Menge aller Möbel, die darin aufgestellt werden sollen. Bei einem Zustandsübergang
+      wird ein Element $f$ aus $F$ entfernt und benachbarte Werte $0$ der Matrix $P$ werden
+      entsprechend der Maße $x$ und $y$, auf den Bezeichner $b$ gesetzt.\\
+      Gültige Zustände seien nur solche, bei denen Stühle benachbart zu Tischen sind und Platz
+      vor der Tür bleibt etc. Das Ziel ist erreicht, wenn die Menge $F$ leer ist. Das bedeutet es
+      gibt vielleicht keinen Zielzustand, wenn z.B. zu viele Möbel für eine kleine Wohnung eingeplant
+      wurden oder alles voller Türen ist.\\
+      Der am besten geeignete Suchalgorithmus ist die Breitensuche, da viele Teilbäume kein Ziel
+      enthalten werden und die Tiefensuche hier potentiell viel Zeit verschwendet.
+
 \item $state: <(c_1, w_1), ..., (c_n, w_n)>$ wobei es eine Menge an Komponenten des Hauses gibt,
       deren Elemente als Tupel mit Elementen einer Menge an Arbeitern kombiniert werden können.\\
       Seien z.B. die Komponenten eines Hauses\\
-      $C=\{floor, wall 1, wall 2, wall 3, wall 4, ceiling, roof, paint 1, paint 2,
-      paint 3, paint 4\}$ und eine Menge von Arbeitern $W=\{a, b, c\}$.
+      $C=\{floor, wall_1, wall_2, wall_3, wall_4, ceiling, roof, paint_1, paint_2,
+      paint_3, paint_4\}$ und eine Menge von Arbeitern $W=\{a, b, c\}$.
       Ein Beispielzustand wäre dann $<(floor, a), (wall 1, b), (wall 2, c)>$.\\
+      Die zeitlichen Abhängigkeiten der Komponenten sind wie folgt:\\
+	  \begin{align*}       
+      &a       && \underset{\text{needs}}{\longrightarrow} && b\\
+      &paint_n && \longrightarrow && wall_n\\
+      &ceiling && \longrightarrow && wall_1 \wedge wall_2 \wedge wall_3 \wedge wall_4\\
+      &roof    && \longrightarrow && ceiling
+      \end{align*}
+      Dadurch sind bestimmte Zustände oder Zustandsfolgen nicht möglich.\\
+      Gesucht wird der kürzeste Pfad zum Ziel (alle Komponenten sind fertig gebaut), also ist die
+      Breitensuche die beste Wahl.
+
+\item ...
 \end{itemize}
 \end{document}
