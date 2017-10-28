@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.27)  28 OCT 2017 16:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.27)  28 OCT 2017 17:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -615,6 +615,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--48
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 58--66
+
+ []
+
+
+Overfull \hbox (2.26123pt too wide) in paragraph at lines 67--69
+[]\OT1/cmr/m/n/12 Der ents-then-de Graph ist bei im-mer wie-der nach-kom-men-de
+n Fahrg[]asten
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -625,7 +635,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 Here is how much of TeX's memory you used:
  4928 strings out of 493029
  65351 string characters out of 6136234
- 138098 words of memory out of 5000000
+ 139098 words of memory out of 5000000
  8386 multiletter control sequences out of 15000+600000
  12141 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -638,7 +648,7 @@ cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on GWV-HA02_Cordt-Hoelzen.pdf (2 pages, 80483 bytes).
+Output written on GWV-HA02_Cordt-Hoelzen.pdf (2 pages, 82385 bytes).
 PDF statistics:
  43 PDF objects out of 1000 (max. 8388607)
  30 compressed objects within 1 object stream

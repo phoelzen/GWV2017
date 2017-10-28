@@ -20,7 +20,7 @@
 \section*{Aufgabe 2.4}
 \begin{itemize}
 \item $state: <P,F>$ wobei $P$ eine Matrix ist, deren Koordinaten Orte in der Wohnung repräsentieren.
-      Die Werte sind dabei Element der Menge $\tilde{F} = F \cup x \cup 0$.
+    Die Werte sind dabei Element der Menge $\tilde{P} = F \cup x \cup 0$.
       $F$ ist die Menge von Möbeln, die Werte $x$ und $0$ stehen für Plätze auf denen keine
       Möbel stehen können und freie Stellen.\\
       Die Menge $F$ besteht aus Zwei-Tupeln mit einem eindeutigen Bezeichner $b$ an der ersten
@@ -55,6 +55,16 @@
       Gesucht wird der kürzeste Pfad zum Ziel (alle Komponenten sind fertig gebaut), also ist die
       Breitensuche die beste Wahl.
 
-\item ...
+\item $state: <x, f_1, ..., f_n>$ wobei $f_n \in \mathbb{N}^0 \cup -1$ und $n$ die Anzahl der
+      Stockwerke ist. In jedem $f_n$ ist die maximale Wartezeit der Personen codiert,
+      $-1$ bedeutet dass niemand wartet. $x$ ist das aktuelle Stockwerk des Fahrstuhls. Ein
+      Zustandsübergang bewegt den Fahrstuhl um ein Stockwerk nach oben oder unten ($x +- 1$) und
+      es vergeht eine Zeiteinheit ($\forall f_n: n \neq x: f_n + 1$).\\
+      Wenn $f_n:n=x \wedge f_n > 0$ nimmt der Fahrstuhl die wartenden Gäste mit und $f_n := -1$.
+      Wenn ein Fahrgast im Fahrstuhl ist wählt er ein Stockwerk $n$ zu dem er fahren will. Ist
+      $f_n > 0$ dann bleibt es unverändert, ist es $-1$ wird es auf $0$ gesetzt.\\
+      
+      Der entsthende Graph ist bei immer wieder nachkommenden Fahrgästen unendlich. Das Ziel ist
+      das Minimum aller $f_n$ zu erreichen. Dafür kann die Breitensuche verwendet werden.
 \end{itemize}
 \end{document}
