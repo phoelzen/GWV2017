@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.27)  28 OCT 2017 17:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.27)  29 OCT 2017 02:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -503,18 +503,18 @@ LaTeX Warning: Unused global option(s):
 (./GWV-HA02_Cordt-Hoelzen.aux)
 \openout1 = `GWV-HA02_Cordt-Hoelzen.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
 \c@lstlisting=\count110
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -578,51 +578,33 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 18.
+LaTeX Font Info:    Try loading font information for U+msa on input line 19.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 18.
+LaTeX Font Info:    Try loading font information for U+msb on input line 19.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 22.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 24.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 22.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 24.
 
-Underfull \hbox (badness 10000) in paragraph at lines 22--29
-
- []
-
-
-Overfull \hbox (50.81952pt too wide) in paragraph at lines 41--48
-\OML/cmm/m/it/12 C \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 floor; 
-wall[]; wall[]; wall[]; wall[]; ceiling; roof; paint[]; paint[]; paint[]; paint
-[]\OMS/cmsy/m/n/12 g$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 41--48
+Underfull \hbox (badness 10000) in paragraph at lines 37--45
 
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 58--66
+Underfull \hbox (badness 10000) in paragraph at lines 84--90
 
- []
-
-
-Overfull \hbox (2.26123pt too wide) in paragraph at lines 67--69
-[]\OT1/cmr/m/n/12 Der ents-then-de Graph ist bei im-mer wie-der nach-kom-men-de
-n Fahrg[]asten
  []
 
 
@@ -631,15 +613,43 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2] (./GWV-HA02_Cordt-Hoelzen.aux) ) 
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 95--102
+
+ []
+
+
+Overfull \hbox (50.81952pt too wide) in paragraph at lines 114--121
+\OML/cmm/m/it/12 C \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 floor; 
+wall[]; wall[]; wall[]; wall[]; ceiling; roof; paint[]; paint[]; paint[]; paint
+[]\OMS/cmsy/m/n/12 g$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--121
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 131--139
+
+ []
+
+
+Overfull \hbox (2.26123pt too wide) in paragraph at lines 140--142
+[]\OT1/cmr/m/n/12 Der ents-then-de Graph ist bei im-mer wie-der nach-kom-men-de
+n Fahrg[]asten
+ []
+
+[4] (./GWV-HA02_Cordt-Hoelzen.aux) ) 
 Here is how much of TeX's memory you used:
- 4928 strings out of 493029
- 65351 string characters out of 6136234
+ 4934 strings out of 493029
+ 65440 string characters out of 6136234
  139098 words of memory out of 5000000
- 8386 multiletter control sequences out of 15000+600000
- 12141 words of font info for 47 fonts, out of 8000000 for 9000
+ 8392 multiletter control sequences out of 15000+600000
+ 12448 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,15n,43p,255b,268s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,15n,43p,255b,340s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
@@ -647,11 +657,12 @@ nts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on GWV-HA02_Cordt-Hoelzen.pdf (2 pages, 82385 bytes).
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on GWV-HA02_Cordt-Hoelzen.pdf (4 pages, 101223 bytes).
 PDF statistics:
- 43 PDF objects out of 1000 (max. 8388607)
- 30 compressed objects within 1 object stream
+ 53 PDF objects out of 1000 (max. 8388607)
+ 37 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -7,6 +7,7 @@
 \usepackage{enumitem}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
+\setlength{\parindent}{0in}
 
 \author{Benjamin Cordt\\Paul Hölzen}
 
@@ -16,6 +17,78 @@
 \pagestyle{fancy}
 \begin{document}
 \maketitle
+
+\section*{Aufgabe 2.3}
+
+\begin{itemize}
+\item Es gibt ein Spielfeld mit eindeutigen Positionen und dort
+verwendbaren Verkehrsmitteln
+\item Mr X kann sich vor und zurück bewegen,
+\item aber nur Verkehrsmittel nutzen, wenn er ein Ticket hat
+\item Tickets:
+    \begin{itemize}
+    \item 4 Taxi.
+    \item 3 Bus,
+    \item 3 Ubahn
+    \end{itemize}
+\item (Black Tickets zur Vereinfachung weggelassen)
+\end{itemize}
+
+Sonstige Annahmen:\\
+Mr X kann sich A Steps bewegen. (und nur diese)\\
+Goal: So weit wie möglich von Detektiven weg,(optional wäre möglich
+auch deren möglichen Positionen nach den ziehen zu berücksichtigen,
+hier Bezug zu ihren Startpunkten)\\
+Answer:\\
+State: $< X_p , DP_n , T, Tickets, S, DS_n , D_n >$\\
+Goal: $<?, DP_n ,?,?,?,?,D_n > ; mit D_n >= DS_n mit D_n > DS_n \rightarrow max$\\
+
+\begin{itemize}
+\item $X_p$ : Position von Mr. X zum Start die Startposition
+\item $DP_n$ : Positionen der Detektive $<DP_1 , .... , DP_n >$ für Anzahl der Detektive $n$
+\item $T$: Mögliche Transportmittel an einer Position zu einer bestimmten anderen $< Taxi, Bus, U-Bahn>$ mit Elementen $(0,1)$ verfügbar und nicht verfügbar
+\item $Tickets$: $<T_{Taxi} , T_{Bus} , T_{U-Bahn} >$ wobei die Tikets Anfangs feststehen und verbraucht werden
+\item $S$: Steps von Mr X (reduzieren sich bei Bewegung)
+\item $DS_n$ : Entfernung Mr. X zu den Detektiven zum Start $< DS_1 , ..., DS_n >$ für Anzahl der Detektive $n$
+\item $D_n$ : Aktuelle Entfernung Mr. X zu den Detektiven $< D_1 , ..., D_n >$ für Anzahl der Detektive $n$ zum Start = $DS_n$
+\end{itemize}
+
+Übergangsregeln: Pfad auswählen, der am weitesten Weg von den
+Detektiven ist (oder notfalls gleich)
+
+\begin{itemize}
+\item While Mr X hat Steps $A>0$
+    \begin{itemize}
+    \item If möglich: Choose mögliche Nachbarposition mit für alle Elemente $Dn> DS_n$ Anzahl der Detektive $n$
+        \begin{itemize}
+        \item move MR X to new Position
+        \item remove used Ticket
+        \item decrease Step by 1
+        \end{itemize}
+    \end{itemize}
+\item else
+    \begin{itemize}
+    \item If möglich: Choose mögliche Nachbarposition für ein $D_n > DS_n$ and new Position $\neq DP_n$
+        \begin{itemize}
+        \item move Mr. X to new Position
+        \item remove used Ticket
+        \item decrease Step by 1
+        \end{itemize}
+    \item else
+        \begin{itemize}
+        \item hold Position and terminiert
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+Zustandsänderungen: von einem Zustand zum nächsten reduziert sich
+die Anzahl der Steps und Tickets. Die möglichen Transportmittel
+können sich ändern und die Position von Mr. X als auch die Distanz
+ändern sich. Die Startdistanz und Position der Detektive bleibt bei uns
+immer gleich.\\
+Hier : Ist Best-first Suche in Abwandlung am besten geeignet.\\
+
+
 
 \section*{Aufgabe 2.4}
 \begin{itemize}
