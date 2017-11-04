@@ -36,5 +36,5 @@ print '\n'.join(env)
 print "start: x " + str(s[0]) + ", y " + str(s[1])
 print "goal:  x " + str(g[0]) + ", y " + str(g[1])
 
-# Search states könnten visualisiert werden indem besuchte Felder
+# Search states koennten visualisiert werden indem besuchte Felder
 # in der 'env' Variable mit neuen Chars ersetzt werden.
