@@ -1,4 +1,12 @@
 #!/usr/bin/python
+'''
+GWV Hausaufgabe 3
+
+Benjamin Cordt
+Felix Degenhardt
+Paul Hoelzen
+'''
+
 import sys
 import re
 
