@@ -34,6 +34,12 @@ def adj(env, vis, pos):
         x = pos[0]+p[0]
         y = pos[1]+p[1]
         if env[y][x] != 'x' and not (x,y) in vis:
+            # teleport
+            if env[y][x].isdigit():
+                send = env[:]
+                # nummer entfernen damit sie nur noch einmal vorkommt
+                send[y] = str(env[y][:x]) + ' ' + str(env[y][x+1:])
+                [x, y] = find(send, str(env[x][y]))
             ret += [[x,y]]
     return ret
 
@@ -69,9 +75,10 @@ def dfs_add(frontier, path):
 # Frontier ist ein Stack, also vorne dran
     return [path] + frontier
 
+
 def start_search(lab, t):
 # starte die suche im Labyrinth lab vom Suchtyp t
-# t: bfs, dfs
+# @param t: bfs, dfs
     with open(lab) as f:
         # Datei zeilenweise in eine Liste einlesen
         env = f.readlines()
