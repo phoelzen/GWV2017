@@ -13,7 +13,7 @@ import re
 '''
 FUNCTIONS
 '''
-def find(char):
+def find(env, char):
 # finde einen Character im eingelesenen
 # ASCII-Labyrinth
     regex = r'.*' + str(char) + '.*'
@@ -26,7 +26,7 @@ def find(char):
         y += 1
     return False
 
-def adj(vis, pos):
+def adj(env, vis, pos):
 # gibt benachbarte, begehbare Felder zurueck
     ret = []
     adj = [[0,-1], [-1,0], [0,1], [1,0]]
@@ -38,7 +38,7 @@ def adj(vis, pos):
     return ret
 
 
-def print_vis(vis, env):
+def print_vis(env, vis):
     h = len(env)
     w = len(env[0])
     ret = env
@@ -69,9 +69,18 @@ def dfs_add(frontier, path):
 # Frontier ist ein Stack, also vorne dran
     return [path] + frontier
 
-def start_search(t):
-    start = find('s')
-    goal = find('g')
+def start_search(lab, t):
+# starte die suche im Labyrinth lab vom Suchtyp t
+# t: bfs, dfs
+    with open(lab) as f:
+        # Datei zeilenweise in eine Liste einlesen
+        env = f.readlines()
+    # die '\n' character am Ende der Zeilen entfernen
+    env = [i.strip('\n') for i in env]
+    print '\n'.join(env)
+    
+    start = find(env, 's')
+    goal = find(env, 'g')
     frontier = [[start]]
     visited = {}
 
@@ -83,36 +92,27 @@ def start_search(t):
 
         if path[-1] == goal:
             print "visited: "
-            print '\n'.join(print_vis(visited, env))
+            print '\n'.join(print_vis(env, visited))
             return path
         
-        for next_pos in adj(visited, path[-1]):
+        for next_pos in adj(env, visited, path[-1]):
             if t == "bfs":
                 frontier = bfs_add(frontier, path + [next_pos])
             elif t == "dfs":
                 frontier = dfs_add(frontier, path + [next_pos])
             else:
                 return None
+'''
+#############################
+'''
 
-'''
-SETUP
-'''
 if (len(sys.argv) != 2):
     print "Please specify the file to be parsed like:"
     print str(sys.argv[0]) + " filename"
     exit()
+filename = sys.argv[1]
 
-with open(sys.argv[1]) as f:
-    # Datei zeilenweise in eine Liste einlesen
-    env = f.readlines()
-
-# die '\n' character am Ende der Zeilen entfernen
-env = [i.strip('\n') for i in env]
-
-
-'''
-MAIN
-'''
-print '\n'.join(env)
-print "BFS: " + str(start_search("bfs"))
-#print "DFS: " + str(start_search("dfs"))
+print "BFS: "
+print start_search(filename, "bfs")
+print "DFS: "
+print start_search(filename, "dfs")
