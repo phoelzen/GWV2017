@@ -39,7 +39,7 @@ def adj(env, vis, pos):
                 send = env[:]
                 # nummer entfernen damit sie nur noch einmal vorkommt
                 send[y] = str(env[y][:x]) + ' ' + str(env[y][x+1:])
-                [x, y] = find(send, str(env[x][y]))
+                [x, y] = find(send, str(env[y][x]))
             ret += [[x,y]]
     return ret
 

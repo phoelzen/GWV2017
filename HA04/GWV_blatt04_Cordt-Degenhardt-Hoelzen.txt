@@ -1,0 +1,15 @@
+GWV Hausaufgaben 4
+------------------
+
+Aufgabe 4.2
+3.
+Im Beispiel-Maze "blatt4_environment_c.txt" ist der Unterschied zwischen
+Depth-First und Breadth-First gut zu sehen. Breadth-First findet den
+kürzeren Weg durch Teleporter, da alle Pfade in der Frontier gleichmäßig
+erweitert werden, während Depth-First zuerst so weit wie möglich in die
+priorisierte Richtung läuft und dabei schon das Ziel findet, allerdings
+eben nicht den kürzesten Pfad.
+
+4.
+Im Beispiel "blatt4_environment_a.txt" wird kein Pfad zum Ziel gefunden,
+da keiner existiert. Das Ziel ist komplett von Mauern umgeben.
