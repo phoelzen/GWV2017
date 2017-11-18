@@ -44,7 +44,7 @@ def adj(env, vis, pos):
     return ret
 
 
-def print_vis(env, vis):
+def print_lab(env, vis):
     h = len(env)
     w = len(env[0])
     ret = env
@@ -53,12 +53,9 @@ def print_vis(env, vis):
         for y in range(h):
             if (x,y) in vis:
                 if env[y][x] == ' ':
-                    c = '.'
-                else:
-                    c = env[y][x].upper()
-                ret[y] = str(env[y][:x]) + c + str(env[y][x+1:])
+                    ret[y] = str(env[y][:x]) + '.' + str(env[y][x+1:])
     return ret
-
+            
 '''
 Breadth-First Search
 '''
@@ -82,22 +79,17 @@ def astar_f(path, goal):
     h = abs(goal[0] - path[-1][0]) + abs(goal[1] - path[-1][1])
     return len(path) + h
 
-
 def astar_add(frontier, goal, path):
 # fuege einen Pfad der Frontier hinzu
 # Frontier ist eine Priority Queue nach f() sortiert
 # neuer Pfad wird mit "insertion sort" eingeordnet
-    f = astar_f(path, goal)
-    for i in range(len(frontier)):
-        if f < astar_f(frontier[i], goal):
-            return frontier[:i] + [path] + frontier[i:]
-    return frontier + [path]
+    return sorted(frontier + [path], key=lambda p: astar_f(p, goal))
 
 
 
 def start_search(lab, t):
 # starte die suche im Labyrinth lab vom Suchtyp t
-# @param t: bfs, dfs
+# @param t: bfs, dfs, astar
     with open(lab) as f:
         # Datei zeilenweise in eine Liste einlesen
         env = f.readlines()
@@ -118,7 +110,7 @@ def start_search(lab, t):
 
         if path[-1] == goal:
             print "visited: "
-            print '\n'.join(print_vis(env, visited))
+            print '\n'.join(print_lab(env, visited))
             print "Length: " + str(len(path))
             return path
         
@@ -143,7 +135,7 @@ filename = sys.argv[1]
 
 print "BFS: "
 print start_search(filename, "bfs")
-#print "DFS: "
-#print start_search(filename, "dfs")
+print "DFS: "
+print start_search(filename, "dfs")
 print "A*: "
 print start_search(filename, "astar")
