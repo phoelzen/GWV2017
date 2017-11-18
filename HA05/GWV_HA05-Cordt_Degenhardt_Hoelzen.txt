@@ -1,0 +1,28 @@
+GWV Hausaufgaben 05
+-------------------
+
+Benjamin Cordt
+Felix Degenhardt
+Paul Hölzen
+
+Aufgabe 5.2.1
+    siehe 'GWV_HA05-Cordt_Degenhardt_Hoelzen.py' Zeile 78ff
+
+Aufgabe 5.2.2
+    Wir mussten nichts ändern. Die Heuristik funktioniert schon mit unserer
+    Implementation der Portale.
+
+Aufgabe 5.2.3
+    Die Suche läuft in diesem Beispiel solange bis sie alle erreichbaren
+    Felder besucht hat. Wo normalerweise ein Pfad zurückgegeben wird, erhalten
+    wir hier nur den Wert 'None', da die Frontier leer ist.
+    Terminierung des Programmes ist gewährleistet, da kein Feld des Labyrinths
+    zweimal besucht wird und alle Eingabe-Labyrinthe endlich sind.
+
+Aufgabe 5.2.4
+    siehe 'GWV_HA05-Cordt_Degenhardt_Hoelzen.py', Funktion 'start_search()'.
+    Variable 'count' zählt expansions und 'max_len_frontier' beinhaltet die
+    Anzahl der Knoten aller Pfade der Frontier.
+
+Aufgabe 5.2.5
+    siehe 'GWV_HA05-Cordt_Degenhardt_Hoelzen.py', Funktion 'start_search_all()'

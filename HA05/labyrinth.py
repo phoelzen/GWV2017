@@ -85,7 +85,7 @@ def astar_add(frontier, goal, path):
 # neuer Pfad wird mit "insertion sort" eingeordnet
     return sorted(frontier + [path], key=lambda p: astar_f(p, goal))
 
-
+''''''
 
 def start_search(lab, t):
 # starte die suche im Labyrinth lab vom Suchtyp t
@@ -95,14 +95,17 @@ def start_search(lab, t):
         env = f.readlines()
     # die '\n' character am Ende der Zeilen entfernen
     env = [i.strip('\n') for i in env]
-    print '\n'.join(env)
+    #print '\n'.join(env)
     
     start = find(env, 's')
     goal = find(env, 'g')
     frontier = [[start]]
     visited = {}
 
+    count = 1
+    max_len_frontier = 1
     while frontier:
+        max_len_frontier = max(sum(len(p) for p in frontier), max_len_frontier)
         path = frontier[0]
         del frontier[0]
 
@@ -112,9 +115,13 @@ def start_search(lab, t):
             print "visited: "
             print '\n'.join(print_lab(env, visited))
             print "Length: " + str(len(path))
+            print "Performance: "
+            print "     number of expansions of frontier: " + str(count)
+            print "     max. number of nodes in frontier: " + str(max_len_frontier)
             return path
         
         for next_pos in adj(env, visited, path[-1]):
+            count += 1
             if t == "bfs":
                 frontier = bfs_add(frontier, path + [next_pos])
             elif t == "dfs":
@@ -123,6 +130,51 @@ def start_search(lab, t):
                 frontier = astar_add(frontier, goal, path + [next_pos])
             else:
                 return None
+
+def start_search_all(lab, t):
+# starte die suche im Labyrinth lab vom Suchtyp t
+# gibt alle Pfade zum Ziel wieder
+# @param t: bfs, astar
+    with open(lab) as f:
+        # Datei zeilenweise in eine Liste einlesen
+        env = f.readlines()
+    # die '\n' character am Ende der Zeilen entfernen
+    env = [i.strip('\n') for i in env]
+    
+    start = find(env, 's')
+    goal = find(env, 'g')
+    frontier = [[start]]
+    visited = {}
+    ret = []
+
+    count = 1
+    max_len_frontier = 1
+    while frontier:
+        max_len_frontier = max(sum(len(p) for p in frontier), max_len_frontier)
+        path = frontier[0]
+        del frontier[0]
+
+        visited[(path[-1][0], path[-1][1])] = 1
+
+        if path[-1] == goal:
+            print "Visited: "
+            print '\n'.join(print_lab(env, visited))
+            print "Length: " + str(len(path))
+            print "Performance: "
+            print "     number of expansions of frontier: " + str(count)
+            print "     max. number of nodes in frontier: " + str(max_len_frontier)
+            ret = ret + [path]
+            continue
+        
+        for next_pos in adj(env, visited, path[-1]):
+            count += 1
+            if t == "bfs":
+                frontier = bfs_add(frontier, path + [next_pos])
+            elif t == "astar":
+                frontier = astar_add(frontier, goal, path + [next_pos])
+            else:
+                return None
+    return ret
 '''
 #############################
 '''
@@ -133,9 +185,13 @@ if (len(sys.argv) != 2):
     exit()
 filename = sys.argv[1]
 
-print "BFS: "
+print ">>>>>>>>>>>> BFS: "
 print start_search(filename, "bfs")
-print "DFS: "
+print ">>>>>>>>>>>> DFS: "
 print start_search(filename, "dfs")
-print "A*: "
+print ">>>>>>>>>>>> A*: "
 print start_search(filename, "astar")
+print
+print "Alle Pfade zum Ziel: "
+for a in start_search_all(filename, "astar"):
+    print a
