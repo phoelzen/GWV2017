@@ -193,5 +193,7 @@ print ">>>>>>>>>>>> A*: "
 print start_search(filename, "astar")
 print
 print "Alle Pfade zum Ziel: "
+c = 1
 for a in start_search_all(filename, "astar"):
-    print a
+    print "Pfad " + str(c) + str(a)
+    c += 1
