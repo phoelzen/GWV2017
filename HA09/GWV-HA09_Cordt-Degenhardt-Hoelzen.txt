@@ -1,0 +1,108 @@
+9.3
+----
+P(battery) = 1 - 0.1 = 0.9
+P(starter) = 0.9^3 = 0.729
+P(engine) = 0.9^8 = 0.4305
+P(engine | pump = true) = 0.9^3 = 0.729
+    -> da alle Teile vor der Pumpe funktionieren müssen
+
+9.4
+----
+1.
+
+P(smuggler) = 0.01
+P(fever) = 0.013
+P(bark | smuggler) = 0.8            P(bark) = 0.0575
+P(bark | !smuggler) = 0.05
+P(sweat | !smuggler, !fever) = 0.0  P(sweat) = 0.011772 
+P(sweat | !smuggler, fever) = 0.6
+P(sweat | smuggler, !fever) = 0.4
+P(sweat | smuggler, fever) = 0.8
+
+                             +----------+-------+
+f0(Smuggler) =               | Smuggler | Value |
+                             +----------+-------+
+                             | true     | 0.01  |
+                             | false    | 0.99  |
+                             +----------+-------+
+                
+                             +-------+-------+
+f1(Fever) =                  | Fever | Value |
+                             +-------+-------+
+                             | true  | 0.013 |
+                             | false | 0.987 |
+                             +-------+-------+
+
+                             +----------+-------+-------+
+f2(Smuggler, Bark) =         | Smuggler | Bark  | Value |
+                             +----------+-------+-------+
+                             | true     | true  | 0.8   |
+                             | true     | false | 0.2   |
+                             | false    | true  | 0.05  |
+                             | false    | false | 0.95  |
+                             +----------+-------+-------+
+       
+                             +----------+-------+-------+-------+
+f3(Smuggler, Fever, Sweat) = | Smuggler | Fever | Sweat | Value |
+                             +----------+-------+-------+-------+
+                             | true     | true  | true  | 0.8   |
+                             | true     | true  | false | 0.2   |
+                             | true     | false | true  | 0.4   |
+                             | true     | false | false | 0.6   |
+                             | false    | true  | true  | 0.6   |
+                             | false    | true  | false | 0.4   |
+                             | false    | false | true  | 0.0   |
+                             | false    | false | false | 1.0   |
+                             +----------+-------+-------+-------+
+
+
+    smuggler        fever
+     |  \             |
+     |   +------+-----+
+     |          |
+     v          v
+    bark      sweat
+
+2.
+
+Wenn eine Person schwitzt besteht nur eine geringe Wahrscheinlichkeit, dass sie ein Schmuggler
+ist. Beobachtet man aber auch das Bellen des Hundes steigt sie so stark, dass Fieber keine plausible
+Erklärung mehr ist.
+
+3.
+
+P(smuggler | bark = true)
+-------------------------
+
+Durch das Entfernen irrelevanter Variablen können Faktoren f1 und f3 direkt eliminiert werden.
+Die Observation "bark = true" reduziert den Faktor f2 auf f4(Smuggler) = [true: 0.8, false: 0.05].
+Durch Multiplizieren der beiden Faktoren f0 und f4 erhalten wir
+f5(Smuggler) = [true: 0.008, false: 0.0495].
+Der Faktor wird normalisiert, indem wir alles durch die Summe der Werte teilen (0.0575) und erhalten
+einen Faktor der das Ergebnis beinhaltet:
+f6(Smuggler) = [true: 0.13913, false: 0.86087]
+
+P(sweat)
+--------
+
+Der Faktor f2 kann von Anfang an eliminiert werden, da keine relevanten Variablen darin enthalten sind.
+Dann summieren wir sequentiell die anderen Faktoren aus.
+
+Eliminiere "smuggler" von f0(smuggler) und f3(smuggler, fever, sweat):
+f4(fever, sweat) = [true;  true;  0.602]
+                   [true;  false; 0.398]
+                   [false; true;  0.004]
+                   [false; false; 0.996]
+
+Eliminiere "fever" von f1(fever) und f4(fever, sweat):
+f5(sweat) = [true:  0.01177] -> Ergebnis
+            [false: 0.98823]
+
+P(smuggler | sweat = true, bark = true)
+---------------------------------------
+
+Die Observations reduzieren die Faktoren f2 und f3 auf neue Faktoren f4(smuggler) und f5(smuggler, fever).
+fever wird aussummiert.
+die letzten Faktoren multipliziert und normalisiert:
+f_n(smuggler) = [true:  0.89357]
+                [false: 0.10643]

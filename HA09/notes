@@ -1,0 +1,14 @@
+P(smuggler | bark) = (P(bark | smuggler) * P(smuggler)) / P(bark)
+    -> P(bark) verbundwahrscheinlichkeit -> alle möglichen Fälle summieren
+
+X aussummieren:
+    alle zeilen eines faktors die sich nur in X unterscheiden
+
+hmm
+    pi -> init verteilung
+    alpha_1(s) = pi(s)*E(s, e_1)
+        -> E(s, e_1) = P(e_1 | s) Emmisionswahrscheinlichkeit
+        -> verbundwahrsch. von zustand und observation
+    alpha_n(s) = SUM_(s' in S) alpha_n-1(s') * T(s', s) * E(s, e1)
+        -> T() = transitionswahrscheinlichkeit
+        -> SUM durch arg_max ersetzen -> berechnet den wahrscheinlichsten Fall
