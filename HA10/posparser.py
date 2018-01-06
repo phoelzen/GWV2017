@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 import copy
 
 words = []
@@ -8,8 +9,44 @@ transitionProbs = {}
 emissionCounts = {}
 emissionProbs = {}
 
+'''
+
++---------+    +---------+    +---------+
+|  tag0   |--->|  tag1   |--->|  tag2   |--->...
++---------+    +---------+    +---------+
+     |              |              |    
+     v              v              v    
++---------+    +---------+    +---------+
+|  word0  |    |  word1  |    |  word2  |
++---------+    +---------+    +---------+
+
+@words
+    Liste aller eingelesenen Wörter
+@tags
+    Liste aller eingelesenen Tags
+@transitionCounts
+    Häufigkeit der Transitionen von 'tag_k-1' zu 'tag_k'
+    -> Abhängigkeit nur vom vorherigen Tag (im Code 'prevTag')
+    Struktur: {tag0: {tag1: 1}, tag1: {tag2: 1}, ...}
+@transitionProbs
+    Wahrscheinlichkeit der Transitionen von 'tag_k-1' zu 'tag_k'
+    umgerechnet von @transitionCounts
+    Struktur: {tag0: {tag1: 1.0}, tag1: {tag2: 1.0}, ...}
+@emissionCounts
+    Häufigkeit der Emission von 'word_k' von 'tag_k'
+    Struktur: {tag0: {word0: 1}, tag1: {word1: 1}, ...}
+@emissionProbs
+    Wahrscheinlichkeit der Emission von 'word_k' von 'tag_k'
+    umgerechnet von @emissionCounts
+    Struktur: {tag0: {word0: 1.0}, tag1: {word1: 1.0}, ...}
+
+'''
+
 def parse_file(fname):
-    global words, tags, transitionCounts, transitionProbs, emissionCounts, emissionProbs
+    '''
+    Parsed eine Datei des Formats "word\ttag\n" in die oben definierten Variablen
+    '''
+    global transitionCounts, transitionProbs, emissionCounts, emissionProbs
     with open(fname, "r") as f:
         lines = f.readlines()
     
@@ -19,8 +56,14 @@ def parse_file(fname):
     transitionProbs = counts_to_probs(transitionCounts)
     emissionProbs = counts_to_probs(emissionCounts)
 
+def parse_line(line, prevTag):
+    if line != '\n':
+        word, tag = line.strip().split("\t")
+        add_word(word, tag, prevTag)
+        return tag
+
 def add_word(word, tag, prevTag):
-    global words, tags, transitionCounts, transitionProbs, emissionCounts, emissionProbs
+    global words, tags, transitionCounts, emissionCounts
     if words.count(word) == 0:
         words += [word]
     if tags.count(tag) == 0:
@@ -39,12 +82,6 @@ def add_word(word, tag, prevTag):
         emissionCounts[tag][word] = 1
     else:
         emissionCounts[tag][word] += 1
-
-def parse_line(line, prevTag):
-    if line != '\n':
-        word, tag = line.strip().split("\t")
-        add_word(word, tag, prevTag)
-        return tag
 
 def counts_to_probs(counts):
     probs = copy.deepcopy(counts)
