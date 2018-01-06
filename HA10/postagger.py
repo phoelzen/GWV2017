@@ -29,7 +29,7 @@ for f in filenames:
 
     prevTag = '$.'
     while True:
-        w = raw_input("finde tag für wort (press Enter or Ctrl-C to exit): ")
+        w = raw_input("finde tag für wort (press Enter to exit): ")
         if not w:
             exit()
         prevTag = find_tag(w, prevTag)

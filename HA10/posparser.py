@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import copy
+import sys
 
 words = []
 tags = []
@@ -50,9 +51,26 @@ def parse_file(fname):
     with open(fname, "r") as f:
         lines = f.readlines()
     
+    #progress bar
+    prog_len = len(lines)
+    sys.stdout.write("parsing [%s]" % (" " * 26))
+    sys.stdout.flush()
+    sys.stdout.write("\b" * 27)
+
     prevTag = '$.'
+    c = 0
     for l in lines:
+        #progress bar
+        if c == 0:
+            sys.stdout.write("#")
+            sys.stdout.flush()
+        c = (c + 1) % (prog_len / 25)
+    
         prevTag = parse_line(l, prevTag)
+
+    sys.stdout.write("\n")
+
+    print "calculating probabilities..."
     transitionProbs = counts_to_probs(transitionCounts)
     emissionProbs = counts_to_probs(emissionCounts)
 
