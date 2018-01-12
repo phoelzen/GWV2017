@@ -1,0 +1,39 @@
+
+
+def old_heuristic(grid):
+    '''
+    if a number is in the correct line, column or quadrant the score increases by 1
+    if a number is in the correct position the score increases by 1
+    '''
+    score = 0
+
+    #lines, columnns and position
+    for n in range(1,16):
+        if str(n) in grid[(n-1)/4]:
+            score += 1
+        if str(n) in [grid[y][(n-1)%4] for y in range(4)]:
+            score += 1
+        if str(n) == grid[(n-1)/4][(n-1)%4]:
+            score += 1
+
+    #quadrants
+    quad = [[0,0], [1,0], [0,1], [1,1]]
+    q_nums = [1, 2, 5, 6]
+    for n in q_nums:
+        #upper left
+        if str(n) in [grid[y][x] for x, y in quad]:
+            score += 1
+    for n in [x+2 for x in q_nums]:
+        #upper right
+        if str(n) in [grid[y][x+2] for x, y in quad]:
+            score += 1
+    for n in [x+8 for x in q_nums]:
+        #lower left
+        if str(n) in [grid[y+2][x] for x, y in quad]:
+            score += 1
+    for n in [x+10 for x in q_nums][1:]:
+        #lower right
+        if str(n) in [grid[y+2][x+2] for x, y in quad]:
+            score += 1
+
+    return 1.0 / score
