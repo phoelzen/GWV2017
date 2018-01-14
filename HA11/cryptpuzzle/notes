@@ -1,0 +1,7 @@
+                a   b   c   d
+index notation  0   1   2   3
+               -4  -3  -2  -1
+column notation 3   2   1   0
+
+column -> index: -col-1 = idx
+index -> column: -idx+len-1 = col
