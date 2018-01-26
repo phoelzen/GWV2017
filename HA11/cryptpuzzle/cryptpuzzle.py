@@ -21,21 +21,38 @@ def check_unary(var, num, words):
     # leading zero
     if num == 0 and var in [x[0] for x in words]:
         return False
+    elif len(col(words, len(words[-1])).remove('_')) == 1:
+        # if first char in sum is the only one in the column it can only be 1
+        return False
     else:
         return True
+
+def all_sums(domains, carry):
+    '''
+    return all possible sums with carry
+    '''
+    ret = {}
+    for i in range(len(carry)):
+        ret[i] = set([sum(v) for v in it.product(*[domains[x] for x in col(words, i)])])
 
 def check_sum(var, num, words, max_len, domains):
     doms = copy.deepcopy(domains)
     doms[var] = [num]
 
-    carriers = [0 for _ in range(max_len)]
+    carry = [0 for _ in range(max_len)]
 
     #for i in range(max_len):
-    for c in [col(words, i) for i in range(max_len)]:
-        if var in c:
-            a_col = c[:-1]
-            s_col = c[-1]
-            a_sum = set([sum(v) for v in it.product(*[doms[x] for x in a_col])])
+    for c in [(col(words, i), i) for i in range(max_len)]:
+        if var in c[0]:
+            idx = c[1]
+            a_col = c[0][:-1]
+            s_col = c[0][-1]
+            #a_sum = set([sum(v)+carry[idx] for v in it.product(*[doms[x] for x in a_col])])
+            a_sum = all_sums(doms, carry)[idx]
+
+            # check following columns with carry
+            # return False if a variable HAS to take a value it can't
+            # to make the sum valid with carry over.
 
             return any([n%10 in doms[s_col] for n in a_sum])
             #return bool(a_sum.intersection(doms[s_col]))
@@ -59,11 +76,12 @@ for v in variables:
     for n in range(10):
         if not check_unary(v, n, words):
             domains[v].remove(n)
+'''
+arc consistency
+'''
 
-print "a"
-for i in domains['a']:
-    print str(i) + " " + str(check_sum('a', i, words, max_len, domains))
-
-print "b"
-for i in domains['b']:
-    print str(i) + " " + str(check_sum('b', i, words, max_len, domains))
+#output
+for v in variables:
+    print v
+    for i in domains[v]:
+        print str(i)

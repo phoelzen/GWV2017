@@ -5,3 +5,61 @@ column notation 3   2   1   0
 
 column -> index: -col-1 = idx
 index -> column: -idx+len-1 = col
+
+
+------------------------
+
+     ,---.       ,---.       ,---.
+     | a |       | b |       | c |
+     °---°       °---°       °---°
+       |           |           |
+ ,---. |     ,---. |     ,---. |
+ | d | |     | e | |     | f | |
+ °---° |     °---° |     °---° |
+   |   |       |   |       |   |
+  +`---´+     +`---´+     +`---´+
+  | a+d |     | b+e |     | c+f |
+  +-----+     +-----+     +-----+
+   /   \       /   \       /   \   
+(/10) (%10) (/10) (%10) (/10) (%10)
+ /       \   /       \   /      |
+...       (+)         (+)       |
+           |           |        |
+         ,---.       ,---.    ,---.
+         | g |       | h |    | i |
+         °---°       °---°    °---°
+
+formulaic:
+
+i = (c+f) % 10
+h = ((b+e) + ((c+f) / 10)) % 10
+g = ((a+d) + (((b+e) + ((c+f) / 10)) / 10))) % 10
+x = ...
+
+general:
+
+    1x_(i+1)    1x_i    1x_(i-1)
++   2x_(i+1)    2x_i    2x_(i-1)
+--------------------------------
+    3x_(i+1)    3x_i    3x_(i-1)
+
+3x_i = 1x_i + 2x_i + carry_(i-1) %10
+carry_i = 1x_i + 2x_i + carry_(i-1) / 10
+
+
+
+Brute Force aufwand:
+
+10^n -> für n verschiedene Buchstaben/Variablen in den Wörtern
+
+bsp: send + more = money
+vars = d, e, m, n, o, r, s, y
+    -> 8 buchstaben
+
+    --> 10^8 = 100 mio variablen belegungen
+
+einschränkung durch leading 0:
+    9^2 * 10^6 = 81 mio
+
+einschränkung m durch carry von zwei zahlen < 10 muss 1 sein:
+    9 * 10^6 = 9 mio

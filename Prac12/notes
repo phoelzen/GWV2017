@@ -1,0 +1,49 @@
+1.
+Predicates:
+
+on_table(block)
+on_top(block1, block2)
+lifted(block)
+claw_empty()
+
+2.
+Actions:
+
+pickup_table(block1)
+    pre
+        on_table(block1)
+        claw_empty()
+    post
+        lifted(block1)
+
+putdown_table(block1)
+    pre
+        lifted(block1)
+    post
+        on_table(block1)
+        claw_empty()
+
+pickup_block(block1, block2)
+    pre
+        on_table(block2)
+        on_top(block1, block2)
+        claw_empty()
+    post
+        lifted(block1)
+
+putdown_block(block1, block2)
+    pre
+        on_table(block2)
+        lifted(block1)
+    post
+        on_top(block1, block2)
+        claw_empty()
+
+3.
+Scenarios:
+init
+    on_table(block1)
+    on_table(block2)
+
+goal
+    on_top(block1, block2)
